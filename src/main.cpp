@@ -15,7 +15,7 @@ int main() {
 
     std::cout << "Enter the number of servers: ";
     std::cin >> numServers;
-    std::cout << "Enter the duration to run the load balancer: ";
+    std::cout << "Enter the duration (clock cycles) to run the load balancer: ";
     std::cin >> duration;
 
     LoadBalancer lb(numServers);
