@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "LoadBalancer.h"
 
 int main() {
     int numServers, duration;

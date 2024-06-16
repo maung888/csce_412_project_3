@@ -14,11 +14,16 @@ public:
 private:
     std::vector<WebServer> web_servers;
     std::queue<Request> request_queue;
+    int original_requests;
+    int random_requests;
+    int handled_requests;
     int num_servers;
 
     void initializeRequests(int numRequests);
     void addRequest(Request request);
     void balanceLoad();
+    std::string generateRandomIP();
+    void printStatistics() const;
 };
 
 #endif // LOADBALANCER_H
