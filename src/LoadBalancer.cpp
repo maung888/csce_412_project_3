@@ -5,11 +5,17 @@
 #include <cstdlib>
 #include <ctime>
 #include <algorithm>
+#include <climits> // For INT_MAX and INT_MIN
+#include <vector>
+#include <queue>
+#include <string>
+#include <random> // For better random number generation
 
 const int SERVER_IDLE_THRESHOLD = 5;
 
 LoadBalancer::LoadBalancer(int numServers)
-    : original_requests(0), random_requests(0), handled_requests(0), num_servers(numServers) {
+    : original_requests(0), random_requests(0), handled_requests(0), num_servers(numServers),
+      min_processing_time(INT_MAX), max_processing_time(INT_MIN) {
     for (int i = 0; i < numServers; ++i) {
         web_servers.emplace_back(i);
     }
@@ -25,6 +31,8 @@ void LoadBalancer::initializeRequests(int numRequests) {
 
 void LoadBalancer::addRequest(Request request) {
     request_queue.push(request);
+    min_processing_time = std::min(min_processing_time, request.getProcessingTime());
+    max_processing_time = std::max(max_processing_time, request.getProcessingTime());
     std::cout << "Added request with IP in: " << request.getIpIn() << ", IP out: " << request.getIpOut() << ", processing time: " << request.getProcessingTime() << std::endl;
 }
 
@@ -54,7 +62,7 @@ void LoadBalancer::balanceLoad() {
             handled_requests++;
         }
 
-        if (!assigned && web_servers.size() >= static_cast<size_t>(num_servers)) {
+        if (!assigned) {
             break;
         }
     }
@@ -71,7 +79,8 @@ void LoadBalancer::balanceLoad() {
 }
 
 void LoadBalancer::run(int duration) {
-    srand(time(0));
+    std::random_device rd;
+    std::mt19937 gen(rd());
 
     for (int t = 0; t < duration; ++t) {
         balanceLoad();
@@ -81,8 +90,9 @@ void LoadBalancer::run(int duration) {
             }
         }
 
-        if (rand() % 100 < 10) {
-            addRequest(Request(generateRandomIP(), generateRandomIP(), rand() % 100));
+        if (gen() % 100 < 10) {
+            Request req = Request(generateRandomIP(), generateRandomIP(), gen() % 100);
+            addRequest(req);
             random_requests++;
         }
 
@@ -93,16 +103,21 @@ void LoadBalancer::run(int duration) {
 }
 
 std::string LoadBalancer::generateRandomIP() {
-    return std::to_string(rand() % 256) + "." +
-           std::to_string(rand() % 256) + "." +
-           std::to_string(rand() % 256) + "." +
-           std::to_string(rand() % 256);
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(0, 255);
+
+    return std::to_string(dis(gen)) + "." +
+           std::to_string(dis(gen)) + "." +
+           std::to_string(dis(gen)) + "." +
+           std::to_string(dis(gen));
 }
 
 void LoadBalancer::printStatistics() const {
     std::cout << "Load Balancer run completed." << std::endl;
-    std::cout << "Original requests: " << original_requests << std::endl;
+    std::cout << "Original requests (Starting Queue Size): " << original_requests << std::endl;
     std::cout << "Randomly generated requests: " << random_requests << std::endl;
     std::cout << "Total requests handled: " << handled_requests << std::endl;
-    std::cout << "Total requests in queue: " << request_queue.size() << std::endl;
+    std::cout << "Total requests in queue (Ending Queue Size): " << request_queue.size() << std::endl;
+    std::cout << "Task times range: " << min_processing_time << " to " << max_processing_time << " ms" << std::endl;
 }
