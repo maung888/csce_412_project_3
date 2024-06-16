@@ -1,0 +1,128 @@
+\doxysection{Web\+Server Class Reference}
+\hypertarget{class_web_server}{}\label{class_web_server}\index{WebServer@{WebServer}}
+
+
+The \doxylink{class_web_server}{Web\+Server} class represents a server that handles requests.  
+
+
+
+
+{\ttfamily \#include $<$Web\+Server.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_web_server_a5044757cd8574d3f62a7eec5d51fb00f}{Web\+Server}} (int id)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_web_server}{Web\+Server}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_web_server_aeb7683db74eccb456592ff2f1dc211d8}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Gets the ID of the server. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_web_server_a9a382239f638ad2b1f57621a37430874}{is\+Busy}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the server is busy processing a request. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_web_server_ab028db6acd1106e0c97dd3a9c5df02a2}{assign\+Request}} (\mbox{\hyperlink{class_request}{Request}} request)
+\begin{DoxyCompactList}\small\item\em Assigns a request to the server. \end{DoxyCompactList}\item 
+\Hypertarget{class_web_server_af4dad1ab06d4eb72773ba9f3e5482251}\label{class_web_server_af4dad1ab06d4eb72773ba9f3e5482251} 
+void {\bfseries process\+Request} ()
+\begin{DoxyCompactList}\small\item\em Processes the current request. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_web_server_ad94fe010e719300e67d1948f05a11f3b}{set\+Idle\+Time}} (int time)
+\begin{DoxyCompactList}\small\item\em Sets the idle time of the server. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_web_server_aa1aa2d26e2bf122c2dad2dbd0fbb9c90}{get\+Idle\+Time}} () const
+\begin{DoxyCompactList}\small\item\em Gets the idle time of the server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_web_server}{Web\+Server} class represents a server that handles requests. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_web_server_a5044757cd8574d3f62a7eec5d51fb00f}\index{WebServer@{WebServer}!WebServer@{WebServer}}
+\index{WebServer@{WebServer}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{WebServer()}{WebServer()}}
+{\footnotesize\ttfamily \label{class_web_server_a5044757cd8574d3f62a7eec5d51fb00f} 
+Web\+Server\+::\+Web\+Server (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_web_server}{Web\+Server}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the server. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_web_server_ab028db6acd1106e0c97dd3a9c5df02a2}\index{WebServer@{WebServer}!assignRequest@{assignRequest}}
+\index{assignRequest@{assignRequest}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{assignRequest()}{assignRequest()}}
+{\footnotesize\ttfamily \label{class_web_server_ab028db6acd1106e0c97dd3a9c5df02a2} 
+void Web\+Server\+::assign\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_request}{Request}}}]{request}{}\end{DoxyParamCaption})}
+
+
+
+Assigns a request to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & The request to be assigned. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_web_server_aeb7683db74eccb456592ff2f1dc211d8}\index{WebServer@{WebServer}!getId@{getId}}
+\index{getId@{getId}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily \label{class_web_server_aeb7683db74eccb456592ff2f1dc211d8} 
+int Web\+Server\+::get\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the ID of the server. 
+
+\begin{DoxyReturn}{Returns}
+The server ID as an integer. 
+\end{DoxyReturn}
+\Hypertarget{class_web_server_aa1aa2d26e2bf122c2dad2dbd0fbb9c90}\index{WebServer@{WebServer}!getIdleTime@{getIdleTime}}
+\index{getIdleTime@{getIdleTime}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{getIdleTime()}{getIdleTime()}}
+{\footnotesize\ttfamily \label{class_web_server_aa1aa2d26e2bf122c2dad2dbd0fbb9c90} 
+int Web\+Server\+::get\+Idle\+Time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the idle time of the server. 
+
+\begin{DoxyReturn}{Returns}
+The idle time in milliseconds. 
+\end{DoxyReturn}
+\Hypertarget{class_web_server_a9a382239f638ad2b1f57621a37430874}\index{WebServer@{WebServer}!isBusy@{isBusy}}
+\index{isBusy@{isBusy}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{isBusy()}{isBusy()}}
+{\footnotesize\ttfamily \label{class_web_server_a9a382239f638ad2b1f57621a37430874} 
+bool Web\+Server\+::is\+Busy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if the server is busy processing a request. 
+
+\begin{DoxyReturn}{Returns}
+True if the server is busy, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_web_server_ad94fe010e719300e67d1948f05a11f3b}\index{WebServer@{WebServer}!setIdleTime@{setIdleTime}}
+\index{setIdleTime@{setIdleTime}!WebServer@{WebServer}}
+\doxysubsubsection{\texorpdfstring{setIdleTime()}{setIdleTime()}}
+{\footnotesize\ttfamily \label{class_web_server_ad94fe010e719300e67d1948f05a11f3b} 
+void Web\+Server\+::set\+Idle\+Time (\begin{DoxyParamCaption}\item[{int}]{time}{}\end{DoxyParamCaption})}
+
+
+
+Sets the idle time of the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & The idle time in milliseconds. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Web\+Server.\+h\item 
+src/Web\+Server.\+cpp\end{DoxyCompactItemize}
