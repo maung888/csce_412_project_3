@@ -91,7 +91,7 @@ $(function(){ initResizable(false); });
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="class_load_balancer.html" title="The LoadBalancer class handles distributing requests to web servers.">LoadBalancer</a> class handles distributing requests to web servers.  
+<p>Manages load balancing across multiple web servers.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_load_balancer_8h_source.html">LoadBalancer.h</a>&gt;</code></p>
@@ -99,14 +99,14 @@ $(function(){ initResizable(false); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6114560fd6fd431c75adeab2f0b230a9" id="r_a6114560fd6fd431c75adeab2f0b230a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6114560fd6fd431c75adeab2f0b230a9">LoadBalancer</a> (int numServers)</td></tr>
-<tr class="memdesc:a6114560fd6fd431c75adeab2f0b230a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_load_balancer.html" title="The LoadBalancer class handles distributing requests to web servers.">LoadBalancer</a>.  <br /></td></tr>
+<tr class="memdesc:a6114560fd6fd431c75adeab2f0b230a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_load_balancer.html" title="Manages load balancing across multiple web servers.">LoadBalancer</a> with a specified number of servers.  <br /></td></tr>
 <tr class="separator:a6114560fd6fd431c75adeab2f0b230a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a3791459728d48ac8ec3ca5c815c688" id="r_a9a3791459728d48ac8ec3ca5c815c688"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a3791459728d48ac8ec3ca5c815c688">run</a> (int duration)</td></tr>
 <tr class="memdesc:a9a3791459728d48ac8ec3ca5c815c688"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the load balancer for a specified duration.  <br /></td></tr>
 <tr class="separator:a9a3791459728d48ac8ec3ca5c815c688"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="class_load_balancer.html" title="The LoadBalancer class handles distributing requests to web servers.">LoadBalancer</a> class handles distributing requests to web servers. </p>
+<div class="textblock"><p>Manages load balancing across multiple web servers. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6114560fd6fd431c75adeab2f0b230a9" name="a6114560fd6fd431c75adeab2f0b230a9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6114560fd6fd431c75adeab2f0b230a9">&#9670;&#160;</a></span>LoadBalancer()</h2>
@@ -123,10 +123,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor for <a class="el" href="class_load_balancer.html" title="The LoadBalancer class handles distributing requests to web servers.">LoadBalancer</a>. </p>
+<p>Constructs a <a class="el" href="class_load_balancer.html" title="Manages load balancing across multiple web servers.">LoadBalancer</a> with a specified number of servers. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">numServers</td><td>Initial number of servers. </td></tr>
+    <tr><td class="paramname">numServers</td><td>The number of web servers to manage. </td></tr>
   </table>
   </dd>
 </dl>
@@ -152,7 +152,7 @@ Public Member Functions</h2></td></tr>
 <p>Runs the load balancer for a specified duration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">duration</td><td>The duration to run the load balancer. </td></tr>
+    <tr><td class="paramname">duration</td><td>The duration to run the load balancer, in arbitrary time units. </td></tr>
   </table>
   </dd>
 </dl>
